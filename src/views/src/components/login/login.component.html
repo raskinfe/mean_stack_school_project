@@ -1,0 +1,51 @@
+<div class="container">
+  <section class="form-container">
+    <div class="form-header">
+      <header>{{ "NAV.LOGIN" | translate }}</header>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <i class="fa fa-envelope icon" aria-hidden="true"></i>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-lock icon"></i>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          (keyup.enter)="authenticateUser()"
+        />
+      </div>
+      <div class="alert-container" *ngIf="displayErrorMessage">
+        <span class="alert-danger">** {{ errorMessage }} **</span>
+      </div>
+
+      <div class="btn-container">
+        <app-cta class="btn-primary" (click)="authenticateUser()">{{
+          "NAV.LOGIN" | translate
+        }}</app-cta>
+      </div>
+      <div class="password-query">
+        <span [routerLink]="['/reset-password']"
+          >{{ "PASSWORD REQUEST" | translate }}?</span
+        >
+      </div>
+      <div class="divider"></div>
+      <div class="signup">
+        <span
+          >{{ "ACCOUNT REQUEST" | translate }}?
+          <span class="focus" [routerLink]="['/register']">{{
+            "NAV.REGISTER" | translate
+          }}</span></span
+        >
+      </div>
+    </div>
+  </section>
+</div>

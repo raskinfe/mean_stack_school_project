@@ -1,0 +1,228 @@
+@import "../../assets/sass/mixins";
+@import "../../assets/sass/variables.scss";
+.container {
+  padding: 40px;
+  max-width: 100vw;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url("../../assets/images/campus.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 50px;
+  }
+
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 1px 2px gray;
+    padding: 40px;
+    border-radius: 4px;
+    gap: 30px;
+    height: min-content;
+    .img {
+      max-width: 300px;
+      max-height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+      .img-container {
+        cursor: pointer;
+        width: 200px;
+        height: 240px;
+        div {
+          width: 200px;
+          height: 240px;
+          border-radius: 50%;
+          justify-self: flex-start;
+          margin-top: -250px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $black;
+          opacity: 0.8;
+          color: $white;
+
+          span {
+            box-shadow: unset;
+          }
+        }
+      }
+      img {
+        width: 100%;
+        border-radius: 50%;
+        max-width: 200px;
+        max-height: 240px;
+        cursor: pointer;
+      }
+      span {
+        font-size: 0.8rem;
+        background-color: $black;
+        padding: 8px;
+        color: $white;
+        border-radius: 4px;
+        box-shadow: 1px 2px rgb(33, 29, 29);
+        cursor: pointer;
+        &:hover {
+          box-shadow: unset;
+        }
+      }
+    }
+    .profile-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      .header {
+        display: flex;
+        justify-content: center;
+        background-color: #fea470;
+        padding: 10px 25px;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: #000;
+        width: 300px;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+
+  .offers {
+    gap: 10px;
+    padding: 20px;
+    min-width: 350px;
+    max-height: 540px;
+    background-color: #e3e0e5;
+    .offer-content {
+      display: flex;
+      width: 100%;
+      background-color: #fea470;
+      align-items: center;
+      border-radius: 4px;
+      gap: 20px;
+      background-color: #fff;
+      cursor: pointer;
+      box-shadow: 1px 2px rgb(214, 184, 184);
+      &:hover {
+        box-shadow: unset;
+      }
+      .title-container {
+        width: 100%;
+      }
+      .content {
+        padding: 15px 25px;
+        display: flex;
+        gap: 20px;
+        .price {
+          font-weight: 600;
+          width: 100%;
+          min-width: 80px;
+        }
+      }
+      .actions {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        .fa-edit {
+          color: rgb(13, 128, 132);
+          cursor: pointer;
+          &:hover {
+            color: rgb(3, 37, 39);
+          }
+        }
+        .fa-trash {
+          color: rgba(172, 19, 19, 0.866);
+          cursor: pointer;
+          &:hover {
+            color: rgba(190, 24, 24, 0.602);
+          }
+        }
+      }
+    }
+    .page-number {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      span {
+        font-weight: 600;
+      }
+      .fa {
+        font-weight: 600;
+        cursor: pointer;
+        &:hover {
+          color: crimson;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  .password {
+    gap: 10px;
+    padding: 20px;
+    min-width: 350px;
+    max-height: 540px;
+    background-color: #e3e0e5;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      input {
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        min-width: 300px;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      span {
+        padding: 0px 10px;
+        margin-left: 20px;
+        color: crimson;
+      }
+    }
+  }
+  .middle {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    min-width: 300px;
+  }
+
+  .admin-span {
+    width: 100%;
+    display: flex;
+    background: #1a4273;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: white;
+    box-shadow: 0 0 1px 1px #777578;
+    cursor: pointer;
+    align-items: center;
+    text-transform: uppercase;
+    &:hover {
+      box-shadow: unset;
+    }
+    span {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="search-bar">
+  <input
+    #search
+    type="search"
+    placeholder="Search "
+    (keypress)="onKeyPressed(search.value)"
+    (keydown)="backSpaceEvent(search.value)"
+    (keyup)="backSpaceEvent(search.value)"
+  />
+  <i class="fa fa-search icon"></i>
+</div>

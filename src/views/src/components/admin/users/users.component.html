@@ -1,0 +1,37 @@
+<div class="users">
+  <table class="table">
+    <tr class="header">
+      <th class="name">Name</th>
+      <th class="name">Email</th>
+      <th class="name">Role</th>
+      <th>Actions</th>
+    </tr>
+    <tbody class="t-body">
+      <tr *ngFor="let user of users" class="row">
+        <td class="name">{{ user.name }}</td>
+        <td class="name">{{ user.email }}</td>
+        <td class="name" *ngIf="editing !== user._id">{{ user.role }}</td>
+        <td *ngIf="editing === user._id" class="name">
+          <select #select [(ngModel)]="role">
+            <option [value]="role" *ngFor="let role of roles">
+              {{ role }}
+            </option>
+          </select>
+        </td>
+        <td class="actions">
+          <i
+            *ngIf="editing !== user._id"
+            class="fa fa-edit"
+            (click)="editing = user._id"
+          ></i>
+          <i
+            class="fas fa-save"
+            *ngIf="editing === user._id"
+            (click)="updateRole(user._id)"
+          ></i>
+          <i class="fa fa-trash" (click)="destroyUser(user._id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

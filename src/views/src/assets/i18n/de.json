@@ -1,0 +1,25 @@
+{
+  "NAV": {
+    "LOGIN": "Anmeldung",
+    "LOGOUT": "Abmelden",
+    "DASHBOARD": "Armaturenbrett",
+    "REGISTER": "Anmelden"
+  },
+
+  "Electronics": "Elektronik",
+  "Furniture": "Möbel",
+  "Study Material": "Studienmaterial",
+  "Cookware": "Kochgeschirr",
+  "newOffer": "Neues Angebot hinzufügen",
+  "BUTTON": {
+    "SUBMIT": "Absenden"
+  },
+  "contact": "ADMIN KONTAKTIEREN",
+  "IMAGE": {
+    "not": "Bild nicht verfügbar"
+  },
+  "NO OFFERS": "Keine Angebote verfügbar!",
+  "ACCOUNT REQUEST": "Brauche ein Konto",
+  "PASSWORD REQUEST": "Passwort vergessen",
+  "CREATE ACCOUNT": "ein Konto erstellen"
+}

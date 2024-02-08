@@ -1,0 +1,54 @@
+<div class="container">
+  <section class="form-container">
+    <div class="form-header">
+      <header>{{ "CREATE ACCOUNT" | translate }}</header>
+    </div>
+    <div class="form-group">
+      <div class="alert-container" *ngIf="displayErrorMessage">
+        <span class="alert-danger">{{ errorMessage }}</span>
+      </div>
+      <div class="input-group">
+        <i class="fa fa-user icon" aria-hidden="true"></i>
+        <input type="text" name="name" placeholder="Name" [(ngModel)]="name" />
+      </div>
+      <div class="input-group">
+        <i class="fa fa-envelope icon" aria-hidden="true"></i>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-lock icon"></i>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+        />
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-key icon"></i>
+        <input
+          type="password"
+          name="repeat_password"
+          [(ngModel)]="repeat_password"
+          placeholder="Repeat password"
+          (keydown)="toggleAlert()"
+          (keyup.enter)="registerUser()"
+        />
+      </div>
+      <div class="alert-container" *ngIf="passwordNotMatch">
+        <span class="alert-danger">** password doesn't match **</span>
+      </div>
+
+      <div class="btn-container">
+        <app-cta class="btn-primary" (click)="registerUser()">{{
+          "NAV.REGISTER" | translate
+        }}</app-cta>
+      </div>
+    </div>
+  </section>
+</div>

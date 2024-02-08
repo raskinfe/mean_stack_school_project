@@ -1,0 +1,10 @@
+<div class="carousel-container" id="slider">
+  <div *ngFor="let feature of featured">
+    <img [src]="imageUrl(feature.image[0])" alt="" class="image-slider" />
+    <div class="category">
+      <div class="span" (click)="changeCategory(feature.category)">
+        <span>{{ feature.category | translate }}</span>
+      </div>
+    </div>
+  </div>
+</div>

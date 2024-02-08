@@ -1,0 +1,33 @@
+tr,
+td,
+th {
+  padding: 8px;
+  border-bottom: 1px solid #333;
+}
+th {
+  border-bottom: 1px solid #333;
+}
+.table {
+  padding: 10px;
+  width: 100%;
+  .actions {
+    .fa-edit {
+      color: green;
+      padding: 4px;
+      &:hover {
+        color: #2b542c;
+      }
+    }
+    .fa-trash {
+      color: crimson;
+      padding: 4px;
+      cursor: pointer;
+      &:hover {
+        color: darkred;
+      }
+    }
+  }
+}
+table {
+  width: 100%;
+}

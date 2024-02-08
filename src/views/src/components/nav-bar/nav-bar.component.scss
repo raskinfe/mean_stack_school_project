@@ -1,0 +1,235 @@
+@import "../../assets/sass/mixins";
+@import "../../assets/sass/variables.scss";
+.mat-toolbar.mat-primary {
+  background-color: $thd-blau;
+}
+.sidenav-container {
+  position: -ms-device-fixed;
+  width: 100vw;
+  /* Safari */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  .sidenav {
+    width: 200px;
+    @include desktop {
+      display: none;
+    }
+    @include tablet {
+      display: none;
+    }
+  }
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.nav {
+  display: flex;
+  padding-right: 10px;
+  .nav-left {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    a {
+      color: #fff;
+      cursor: pointer;
+      align-self: flex-end;
+      @include tablet {
+        font-size: 12px;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  .nav-right {
+    display: flex;
+    gap: 20px;
+    a {
+      color: #fff;
+      cursor: pointer;
+      @include tablet {
+        font-size: 12px;
+      }
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .langselect {
+    padding: 6px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: $white;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: 240px;
+  cursor: pointer;
+  @include mobile {
+    max-width: 160px;
+  }
+  @include tablet {
+    width: 170px;
+  }
+  img {
+    width: 240px;
+    @include tablet {
+      width: 170px;
+    }
+    @include mobile {
+      width: 160px;
+    }
+  }
+}
+
+.c-mobile-menu {
+  //position: relative;
+  .c-mobile-menu__close {
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+    padding: 10px;
+    .menu-bars {
+      width: 50px;
+      height: 50px;
+      border: 1px solid $white;
+      border-radius: 50%;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:after {
+        width: 50px;
+        height: 50px;
+        border: 1px solid $white;
+        border-radius: 50%;
+        background: transparent;
+        display: flex;
+        position: absolute;
+        content: "";
+        -webkit-animation: border-animation 3s ease-out infinite;
+        -o-animation: border-animation 3s ease-out infinite;
+        animation: border-animation 3s ease-out infinite;
+      }
+      .open {
+        border-bottom: 2px solid $white;
+        width: 24px;
+        //position: absolute;
+        margin-bottom: 2px;
+        &:after {
+          border-bottom: 2px solid $white;
+          width: 24px;
+          position: absolute;
+          transform: translateY(8px);
+          content: "";
+        }
+        &:before {
+          border-bottom: 2px solid $white;
+          width: 24px;
+          position: absolute;
+          transform: translateY(-8px);
+          content: "";
+        }
+      }
+      .close {
+        border-bottom: 2px solid crimson;
+        width: 24px;
+        rotate: 60deg;
+        position: absolute;
+        &:after {
+          border-bottom: 2px solid crimson;
+          width: 24px;
+          rotate: 60deg;
+          position: absolute;
+          content: "";
+        }
+      }
+    }
+  }
+  .c-mobile-menu__container {
+    background: $black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: 80vh;
+    gap: 20px;
+    .logo {
+      display: flex;
+      align-items: center;
+      max-width: 200px;
+      cursor: pointer;
+      @include tablet {
+        width: 170px;
+      }
+      img {
+        width: 200px;
+        @include tablet {
+          width: 170px;
+        }
+      }
+    }
+    a {
+      color: $white;
+      font-size: 1.6rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      &:hover {
+        color: crimson;
+      }
+    }
+  }
+}
+
+.c-language-selector {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  justify-self: flex-end;
+  span {
+    font-size: 1rem;
+    color: $white;
+    padding: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover {
+      color: crimson;
+    }
+    &:active {
+      color: crimson;
+    }
+  }
+}
+
+@keyframes border-animation {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}

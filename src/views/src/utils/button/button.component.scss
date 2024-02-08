@@ -1,0 +1,24 @@
+@import "../../assets/sass/variables.scss";
+
+.btn {
+  div {
+    display: flex;
+    padding: 15px 10px;
+    border-radius: 4px;
+    color: #fff;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 3px rgb(223, 210, 210);
+    &:hover {
+      box-shadow: unset;
+    }
+  }
+  .--active {
+    background-color: $thd-blau;
+  }
+  .--danger {
+    background-color: crimson;
+  }
+}

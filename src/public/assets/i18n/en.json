@@ -1,0 +1,25 @@
+{
+  "NAV": {
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "DASHBOARD": "Dashboard",
+    "REGISTER": "Register"
+  },
+
+  "Electronics": "Electronics",
+  "Furniture": "Furniture",
+  "Study Material": "Study Material",
+  "Cookware": "Cookware",
+  "newOffer": "Add new offer",
+  "BUTTON": {
+    "SUBMIT": "Submit"
+  },
+  "contact": "Contact admin",
+  "IMAGE": {
+    "not": "Image not available"
+  },
+  "NO OFFERS": "No offers are available!",
+  "ACCOUNT REQUEST": "Need an account",
+  "PASSWORD REQUEST": "Forgot password",
+  "CREATE ACCOUNT": "create an account"
+}

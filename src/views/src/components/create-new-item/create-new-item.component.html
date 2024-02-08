@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="form-group">
+    <form>
+      <div class="file">
+        <input
+          type="file"
+          name="posts"
+          id="upload"
+          hidden
+          (change)="onChange($event)"
+        />
+        <div class="btn-group">
+          <app-cta class="btn btn-primary" (click)="uploadFile()"
+            >Upload picture</app-cta
+          >
+        </div>
+      </div>
+      <div class="inp">
+        <input
+          type="text"
+          name="title"
+          class="input"
+          placeholder="add a title"
+          [(ngModel)]="title"
+        />
+        <select
+          name="category"
+          id="category"
+          class="input safari-only"
+          [(ngModel)]="category"
+        >
+          <option value="">Select a category</option>
+          <option [value]="category" *ngFor="let category of _categories">
+            {{ category }}
+          </option>
+        </select>
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder="Add a description for your item."
+          class="input"
+          [(ngModel)]="description"
+        ></textarea>
+        <input
+          type="number"
+          class="price"
+          name="price"
+          step="0.01"
+          class="input"
+          placeholder="estimated price"
+          [(ngModel)]="price"
+        />
+        <app-cta class="btn btn-primary btn-submit" (click)="submitPost()"
+          >Submit</app-cta
+        >
+      </div>
+    </form>
+  </div>
+</div>

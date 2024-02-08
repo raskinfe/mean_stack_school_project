@@ -1,0 +1,36 @@
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 100;
+  padding: 40px;
+  .container {
+    background-color: #e3e0e5;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 2px 2px #d3c8c8;
+    position: relative;
+    animation: chatBox 5s infinite;
+  }
+}
+
+@keyframes chatBox {
+  0% {
+    border: 0;
+  }
+  25% {
+    top: -10px;
+  }
+  50% {
+    top: -25px;
+  }
+  75% {
+    top: -50px;
+  }
+  100% {
+    top: 0;
+  }
+}

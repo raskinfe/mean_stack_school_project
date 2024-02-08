@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="form-group">
+    <header>{{ "contact" | translate }}</header>
+    <form action="#">
+      <input
+        type="text"
+        name="issuer_name"
+        [(ngModel)]="issuer_name"
+        placeholder="Full name"
+      />
+      <input
+        type="email"
+        name="issuer_email"
+        placeholder="Email"
+        [(ngModel)]="issuer_email"
+      />
+      <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+        [(ngModel)]="subject"
+      />
+      <textarea name="body" placeholder="Body" [(ngModel)]="body"> </textarea>
+      <app-cta (click)="storeIssue()">{{
+        "BUTTON.SUBMIT" | translate
+      }}</app-cta>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<section class="table">
+  <table>
+    <thead>
+      <th>title</th>
+      <th>user</th>
+      <th>category</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offer of offers">
+        <td>{{ offer.title }}</td>
+        <td>{{ offer.user_name }}</td>
+        <td>{{ offer.category }}</td>
+        <td>{{ offer.status }}</td>
+        <td class="actions">
+          <i class="fa fa-trash"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

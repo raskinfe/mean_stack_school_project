@@ -1,0 +1,46 @@
+<div class="side-bar">
+  <div class="add-btn" [routerLink]="['./create-new-item']">
+    <app-cta [type]="'active'">
+      <span class="cta_text"> {{ "newOffer" | translate }} </span>
+      <i class="fa fa-plus"></i>
+    </app-cta>
+  </div>
+  <div class="bottom">
+    <div class="categories">
+      <div class="category">
+        <a
+          class="btn"
+          *ngFor="let category of categories"
+          (click)="onSelectEvent(category)"
+        >
+          <input
+            type="checkbox"
+            name=""
+            [id]="category"
+            (change)="onChangeCategory(category)"
+          />
+          <span>{{ category | translate }}</span>
+        </a>
+      </div>
+    </div>
+    <div class="price-filter category">
+      <a class="btn" (click)="onSelectEvent(50)">
+        <input type="checkbox" name="" id="50" (change)="filterByPrice(50)" />
+        <span>0 - 50</span>
+      </a>
+      <a class="btn" (click)="onSelectEvent(100)">
+        <input type="checkbox" name="" id="100" (change)="filterByPrice(100)" />
+        <span>50 - 100</span>
+      </a>
+      <a class="btn" (click)="onSelectEvent(1000)">
+        <input
+          type="checkbox"
+          name=""
+          id="1000"
+          (change)="filterByPrice(1000)"
+        />
+        <span>100 - 1000</span>
+      </a>
+    </div>
+  </div>
+</div>

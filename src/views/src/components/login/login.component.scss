@@ -1,0 +1,33 @@
+.password-query {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  span {
+    cursor: pointer;
+    color: #333;
+    &:hover {
+      color: #1879ea;
+    }
+  }
+}
+.divider {
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.signup {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .focus {
+    text-transform: capitalize;
+    color: #333;
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
+    cursor: pointer;
+    &:hover {
+      color: #5697d8;
+    }
+  }
+}

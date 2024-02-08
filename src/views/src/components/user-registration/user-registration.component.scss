@@ -1,0 +1,84 @@
+@import "../../assets/sass/variables.scss";
+@import "../../assets/sass/mixins";
+.container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 20px;
+  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+  .form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include mobile {
+      width: 90vw;
+      padding: 30px;
+    }
+    .form-header {
+      font-family: $header-font-family;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      @include mobile {
+        font-size: 1.2rem;
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      font-family: "Montserrat", sans-serif;
+      .input-group {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        .icon {
+          font-size: 1.4rem;
+          min-width: 40px;
+          @include mobile {
+            min-width: 14px;
+            font-size: 0.8rem;
+          }
+        }
+        input {
+          outline: none;
+          border: none;
+          border-radius: 4px;
+          background: rgb(217, 217, 217);
+          padding: 10px 20px;
+          font-size: 1.2rem;
+          width: 400px;
+          @include mobile {
+            width: 100%;
+            font-size: 0.8rem;
+          }
+        }
+      }
+      .alert-container {
+        display: flex;
+        justify-content: center;
+        .alert-danger {
+          color: $primary;
+        }
+      }
+      .btn-container {
+        display: flex;
+        justify-content: flex-end;
+        .btn-primary {
+          width: 400px;
+          @include mobile {
+            width: 430px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

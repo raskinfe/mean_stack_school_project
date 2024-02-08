@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="profile-content">
+    <div class="img">
+      <div
+        class="img img-container"
+        (mouseenter)="toggleTooltip()"
+        (mouseleave)="toggleTooltip()"
+        (click)="fileUpload()"
+      >
+        <img [src]="imageUrl" alt="profile-image" />
+        <div *ngIf="showTooltip">
+          <i class="fa-solid fa-camera"
+            ><span class="camera-text">upload picture</span></i
+          >
+        </div>
+      </div>
+      <input
+        type="file"
+        hidden
+        name="avatar"
+        id="avatar"
+        (change)="onChange($event)"
+      />
+      <app-cta (click)="submit()" class="btn">Chang profile picture</app-cta>
+    </div>
+    <div class="profile-items">
+      <div>
+        <input
+          class="header"
+          type="text"
+          name="email"
+          [(ngModel)]="user.name"
+        />
+      </div>
+      <div>
+        <input
+          class="header"
+          type="text"
+          name="email"
+          [(ngModel)]="user.email"
+        />
+      </div>
+      <app-cta class="btn" (click)="submit()">Update profile</app-cta>
+      <app-cta type="" class="btn" (click)="onDelete()">
+        <span>Delete account</span>
+      </app-cta>
+      <div
+        class="admin-span"
+        [routerLink]="['/admin']"
+        *ngIf="_state.isAdmin()"
+      >
+        <span>change to admin</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="middle">
+    <div class="profile-content offers" *ngIf="numberOfPages">
+      <div *ngFor="let offer of paginatedOffers">
+        <div class="offer-content">
+          <div class="content title-container">
+            <span class="title">{{ offer.title }}</span>
+          </div>
+          <div class="content">
+            <span class="price">{{ offer.price }} &euro;</span>
+          </div>
+          <div class="actions">
+            <i class="fa fa-edit" (click)="onEditOffer(offer._id)"></i>
+            <i class="fa fa-trash" (click)="onDeleteOffer(offer._id)"></i>
+          </div>
+        </div>
+      </div>
+      <div class="page-number">
+        <i class="fa fa-arrow-left" *ngIf="pageNumber > 1" (click)="back()"></i>
+        <div>
+          Page <span>{{ pageNumber }}</span> of {{ numberOfPages }}
+        </div>
+        <i
+          class="fa fa-arrow-right"
+          *ngIf="pageNumber < numberOfPages"
+          (click)="forward()"
+        ></i>
+      </div>
+    </div>
+    <div class="profile-content password">
+      <form action="">
+        <input
+          type="password"
+          name="old_password"
+          placeholder="Old password"
+          [(ngModel)]="old_password"
+        />
+        <input
+          type="password"
+          name="new_password"
+          placeholder="New password"
+          [(ngModel)]="new_password"
+        />
+        <input
+          type="password"
+          name="reapeat_password"
+          placeholder="Repeat password"
+          [(ngModel)]="repeat_password"
+        />
+        <span *ngIf="error">{{ error }}</span>
+        <app-cta class="btn" (click)="onChangePassword()"
+          >Change password</app-cta
+        >
+      </form>
+    </div>
+  </div>
+</div>

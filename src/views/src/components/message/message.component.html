@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="cmessages" *ngIf="messageLength; else elseblock">
+    <div class="sidebar">
+      <div class="msg-container">
+        <div
+          class="__tab_header"
+          *ngFor="let sender of senders; let i = index"
+          (click)="activateBody(sender.id)"
+          [id]="sender.id"
+        >
+          <img [src]="imageUrl(sender.avatar)" alt="profile-picture" />
+          <span>{{ sender.name }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="msg-content">
+        <div class="__tab_content" id="msg">
+          <div
+            class="msg"
+            *ngFor="let message of grouppedMessages; let ind = index"
+          >
+            <div
+              class="sent"
+              *ngIf="message.sender === _state.user.id; else elseblock"
+            >
+              <span>{{ message.body }}</span>
+            </div>
+            <ng-template #elseblock>
+              <div class="recieved">
+                <span>{{ message.body }}</span>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+        <div class="input-box">
+          <input
+            type="text"
+            name="outgoing"
+            [(ngModel)]="outgoing"
+            (keyup.enter)="onSendMessage()"
+          />
+          <i class="fa fa-paper-plane" (click)="onSendMessage()"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseblock> No messages available</ng-template>
+</div>

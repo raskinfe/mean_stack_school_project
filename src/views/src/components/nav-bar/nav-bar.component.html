@@ -1,0 +1,85 @@
+<mat-sidenav-container class="sidenav-container">
+  <div class="c-mobile-menu" *ngIf="isMobile">
+    <mat-toolbar color="primary">
+      <div class="logo" (click)="navigateTo('/')">
+        <img src="../../assets/images/THD-Logo.png" alt="THD Logo" />
+      </div>
+      <div class="c-language-selector">
+        <div *ngFor="let lang of translate.getLangs(); let i = index">
+          <span (click)="translate.use(lang)">{{ lang }}</span>
+          <span *ngIf="i < translate.getLangs().length - 1"> | </span>
+        </div>
+      </div>
+      <section class="c-mobile-menu__close">
+        <div class="menu-bars" (click)="handleClass()">
+          <p [class]="!isActive ? 'open' : 'close'"></p>
+        </div>
+      </section>
+    </mat-toolbar>
+    <div class="c-mobile-menu__container" *ngIf="isMobile && isActive">
+      <div class="nav-left">
+        <a mat-list-item (click)="navigateTo('/')">
+          {{ "NAV.DASHBOARD" | translate }}
+        </a>
+      </div>
+      <a *ngIf="!isLoggedIn" (click)="navigateTo('login')">
+        {{ "NAV.LOGIN" | translate }}
+      </a>
+      <a *ngIf="!isLoggedIn" (click)="navigateTo('register')">
+        {{ "NAV.REGISTER" | translate }}
+      </a>
+      <a *ngIf="isLoggedIn" (click)="navigateTo('profile')">
+        <span>Profile </span>
+      </a>
+      <a *ngIf="isLoggedIn" (click)="navigateTo('messages')">
+        <span>Messages</span>
+      </a>
+      <a *ngIf="isLoggedIn" (click)="logout()">
+        {{ "NAV.LOGOUT" | translate }}
+      </a>
+    </div>
+  </div>
+  <mat-sidenav-content class="nav" *ngIf="!isMobile">
+    <mat-toolbar color="primary">
+      <div class="nav-left">
+        <div class="logo" (click)="navigateTo('/')">
+          <img src="../../assets/images/THD-Logo.png" alt="THD Logo" />
+        </div>
+        <a mat-list-item [routerLink]="['/']">
+          {{ "NAV.DASHBOARD" | translate }}
+        </a>
+      </div>
+      <div class="nav-right">
+        <div>
+          <select
+            #langselect
+            (change)="translate.use(langselect.value)"
+            name=""
+            id=""
+            class="langselect"
+          >
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang">
+              {{ lang }}
+            </option>
+          </select>
+        </div>
+        <a mat-list-item *ngIf="!isLoggedIn" [routerLink]="['/login']">
+          {{ "NAV.LOGIN" | translate }}
+        </a>
+        <a mat-list-item *ngIf="!isLoggedIn" [routerLink]="['/register']">
+          {{ "NAV.REGISTER" | translate }}
+        </a>
+        <a mat-list-item *ngIf="isLoggedIn" [routerLink]="['/profile']">
+          <i class="fa fa-user"></i>
+        </a>
+        <a mat-list-item *ngIf="isLoggedIn" (click)="navigateTo('messages')">
+          <i class="fa-solid fa-message"></i>
+        </a>
+        <a mat-list-item *ngIf="isLoggedIn" (click)="logout()">
+          {{ "NAV.LOGOUT" | translate }}
+        </a>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

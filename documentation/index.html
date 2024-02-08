@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>my-project documentation</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/dark.css" />
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top visible-xs">
+      <a href="./" class="navbar-brand">my-project documentation</a>
+      <button
+        type="button"
+        class="btn btn-default btn-menu ion-ios-menu"
+        id="btn-menu"
+      ></button>
+    </div>
+
+    <div class="xs-menu menu" id="mobile-menu">
+      <div id="book-search-input" role="search">
+        <input type="text" placeholder="Type to search" />
+      </div>
+      <compodoc-menu></compodoc-menu>
+    </div>
+
+    <div class="container-fluid main">
+      <div class="row main">
+        <div class="hidden-xs menu">
+          <compodoc-menu mode="normal"></compodoc-menu>
+        </div>
+        <!-- START CONTENT -->
+        <div class="content getting-started">
+          <div class="content-data">
+            <ol>
+              <li>
+                Desse, Kinfemichael, &nbsp; &nbsp; Matriculation no. 00813759
+              </li>
+              <li>Sufiya, Afzal &nbsp; &nbsp; Matriculation no. 22108480</li>
+            </ol>
+            <h1 id="university-classifieds-app">University Classifieds App</h1>
+            <p>
+              <a href="https://mygit.th-deg.de/as05480/mitws2223"
+                >Link to the repository</a
+              >
+            </p>
+            <h2 id="projectdescription">Projectdescription</h2>
+            <p>
+              The Technische Hochschule Deggendorf is a university of applied
+              sciences in Deggendorf , Lower Bavaria , with around 8,000
+              students (as of winter semester 2020/21). For advertisement of
+              their own sell/giveaway offers, a portal for classifieds is our
+              idea of this project. Using this portal students, teaching
+              faculties and other staff members of university can post their
+              second hand/used stuff to sell/giveaway.
+            </p>
+            <h2 id="prerequisite">prerequisite</h2>
+            <ul>
+              <li>node v4+</li>
+              <li>angular cli</li>
+            </ul>
+            <h2 id="code-base-and-structure">Code base and structure</h2>
+            <p>
+              The root project follewed mvc design pattern. All the backend
+              filles are defined in the src directory.
+            </p>
+            <blockquote>
+              <p>
+                <code>Routes</code> directory holds all the required routes and
+                paths
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                <code>Controllers</code> directory includes all the classes
+                defined to interact with database and the view
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                <code>Models</code> directory holds all the schema definations
+                of the application
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                the front end angular app resides in the
+                <code>views</code> directory
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                Once the front end app is build the build is configured to be
+                passed to the <code>public</code> directory. This directory
+                holds all the static files. The application is set up in a way
+                it is possible to run the whol app from one server instead of
+                running the backend and the front end in two seprate server. Of
+                course during the development phase we have to run the frontend
+                angular app on a separate folder.
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                Finally the <code>config</code> directory holds necessary
+                configuratyions. including databse connection, authentication
+                configuration and file storage configuration.
+              </p>
+            </blockquote>
+            <blockquote>
+              <p>
+                necessary environmental variables are defined in the
+                <code>.env</code> file.
+              </p>
+            </blockquote>
+            <h3 id="directory-structure">Directory structure</h3>
+            <p>
+              <br />&nbsp;&nbsp;<img
+                width="416"
+                alt="Screenshot 2022-11-12 at 22 08 04"
+                src="https://user-images.githubusercontent.com/44194230/201494622-2f5ef58d-c6af-4cf5-86f4-cd879c2c86dd.png"
+              />&nbsp;
+            </p>
+            <h2 id="installation">Installation</h2>
+            <ul>
+              <li><p>first clone the repository</p></li>
+              <li>
+                <p>
+                  copy <code>.env.example</code> to <code>.env</code> and add
+                  the required environment variables
+                </p>
+                <blockquote>
+                  <p><code>cp .env.example .env</code></p>
+                </blockquote>
+              </li>
+              <li>
+                <p>to install all the required packages and dependencies</p>
+                <blockquote>
+                  <p><code>npm install</code></p>
+                </blockquote>
+              </li>
+              <li><p>to run server</p></li>
+            </ul>
+            <blockquote>
+              <p><code>npm run dev</code></p>
+            </blockquote>
+            <ul>
+              <li>to run the front end app</li>
+            </ul>
+            <blockquote>
+              <p><code>cd src/views</code></p>
+            </blockquote>
+            <blockquote>
+              <p><code>ng serve</code></p>
+            </blockquote>
+            <ul>
+              <li>
+                to build the angular app run
+                <blockquote>
+                  <p><code>ng build</code></p>
+                </blockquote>
+              </li>
+            </ul>
+            <p>
+              The command above will compile the app into
+              <code>src/public</code> directory.
+            </p>
+            <h2 id="basic-usage">Basic Usage</h2>
+            <p>
+              Users can view the posts from other users without login. To send a
+              mesasge or post own offer, user needs to login/register on the
+              portal. There are different categories for different products.
+              User can use filter as well to sort out the ads as per
+              requirement.
+            </p>
+            <h3 id="use-cases">Use cases</h3>
+            <ol>
+              <li>
+                Parsing through available offers for a specific item. (no login
+                neede)
+              </li>
+              <li>
+                Users can search for item or filter the offers based on
+                categories and or prices (no login needed)
+              </li>
+              <li>
+                users can register on the portal and become a memeber. to
+                register users need a valid email address. on the database users
+                name email and hashed password will be saved.
+              </li>
+              <li>registered users can login</li>
+              <li>
+                registered users can create an offer, edit their offer and
+                delete their offer.
+              </li>
+              <li>
+                registered users can send private messages to another registered
+                user
+              </li>
+              <li>
+                registered users can edit their profile which includes changing
+                profile picture, updating passwords and name
+              </li>
+              <li>chatting with admin.</li>
+              <li>
+                once sold users can mark their offer sold. sold items will be
+                deleted from the portal
+              </li>
+              <li>users can change the language to German or English</li>
+            </ol>
+            <h3 id="project-demo">Project Demo</h3>
+            <p>
+              <br /><img
+                width="1432"
+                alt="Screenshot 2022-11-12 at 22 28 41"
+                src="https://user-images.githubusercontent.com/44194230/201495247-3727f1a6-dffd-49f5-9a1f-bdd1365544cd.png"
+              />
+            </p>
+            <img
+              width="1425"
+              alt="Screenshot 2022-11-12 at 22 29 24"
+              src="https://user-images.githubusercontent.com/44194230/201495264-23a5ea16-ec90-4bf3-a87e-dd5b68617778.png"
+            />
+
+            <img
+              width="1432"
+              alt="Screenshot 2022-11-12 at 22 30 17"
+              src="https://user-images.githubusercontent.com/44194230/201495294-fce743fe-0413-40bb-a3f5-b8a835b3a4d9.png"
+            />
+
+            <img
+              width="1438"
+              alt="Screenshot 2022-11-12 at 22 30 55"
+              src="https://user-images.githubusercontent.com/44194230/201495324-c4c1fa7c-cc85-4daa-b023-27720658e083.png"
+            />
+
+            <p>
+              <img
+                src="https://user-images.githubusercontent.com/44194230/201495367-fd4dba1d-5e90-4ca2-ad91-0479165b8c46.jpeg"
+                alt="WhatsApp Image 2022-11-12 at 8 14 10 PM"
+                class="img-responsive"
+              />
+            </p>
+          </div>
+          <div class="search-results">
+            <div class="has-results">
+              <h1 class="search-results-title">
+                <span class="search-results-count"></span> results matching
+                "<span class="search-query"></span>"
+              </h1>
+              <ul class="search-results-list"></ul>
+            </div>
+            <div class="no-results">
+              <h1 class="search-results-title">
+                No results matching "<span class="search-query"></span>"
+              </h1>
+            </div>
+          </div>
+        </div>
+        <!-- END CONTENT -->
+      </div>
+    </div>
+
+    <label class="dark-mode-switch">
+      <input type="checkbox" />
+      <span class="slider">
+        <svg
+          class="slider-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          height="20"
+          stroke="#000"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+        </svg>
+      </span>
+    </label>
+
+    <script>
+      var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+      var COMPODOC_CURRENT_PAGE_CONTEXT = "getting-started";
+      var COMPODOC_CURRENT_PAGE_URL = "index.html";
+      var MAX_SEARCH_RESULTS = 15;
+    </script>
+
+    <script src="./js/libs/custom-elements.min.js"></script>
+    <script src="./js/libs/lit-html.js"></script>
+
+    <script src="./js/menu-wc.js" defer></script>
+    <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+    <script src="./js/libs/bootstrap-native.js"></script>
+
+    <script src="./js/libs/es6-shim.min.js"></script>
+    <script src="./js/libs/EventDispatcher.js"></script>
+    <script src="./js/libs/promise.min.js"></script>
+    <script src="./js/libs/zepto.min.js"></script>
+
+    <script src="./js/compodoc.js"></script>
+
+    <script src="./js/tabs.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/libs/clipboard.min.js"></script>
+    <script src="./js/libs/prism.js"></script>
+    <script src="./js/sourceCode.js"></script>
+    <script src="./js/search/search.js"></script>
+    <script src="./js/search/lunr.min.js"></script>
+    <script src="./js/search/search-lunr.js"></script>
+    <script src="./js/search/search_index.js"></script>
+    <script src="./js/lazy-load-graphs.js"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<div class="container">
+  <app-search (offerLookUp)="onKeyWordSearch($event)"></app-search>
+  <app-carousel
+    [featured]="featured"
+    (emitCategory)="filterByCarousel($event)"
+  ></app-carousel>
+  <div class="dashboard-content">
+    <app-dashboard-sidebar
+      (categorySelect)="onSelect($event)"
+      (categoryChange)="onChangeCategory($event)"
+      (priceFilter)="filterByPrice($event)"
+    >
+    </app-dashboard-sidebar>
+    <div class="content" *ngIf="numberOfPages; else elseblock">
+      <div class="middle">
+        <div *ngFor="let post of paginatedPosts">
+          <div class="post-img" (click)="goToOffer(post)">
+            <img
+              class="image"
+              *ngIf="post.image; else elseblock"
+              [src]="imageUrl(post.image[0])"
+              alt=""
+            />
+            <ng-template #elseblock
+              ><div class="image">
+                {{ "IMAGE.not" | translate }}
+              </div></ng-template
+            >
+            <div class="description">
+              <div class="title item">{{ post.title }}</div>
+              <div class="name item">{{ post.description }}</div>
+              <div class="price item">{{ post.price }} &euro;</div>
+              <div class="name item">{{ post.user_name }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-number">
+        <div class="arrow" *ngIf="pageNumber > 1" (click)="back()">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        </div>
+        <div class="number">
+          <span
+            >Page <span class="active">{{ pageNumber }}</span> of
+            {{ numberOfPages }}</span
+          >
+        </div>
+        <div
+          class="arrow"
+          *ngIf="pageNumber < numberOfPages"
+          (click)="forward()"
+        >
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+      <app-chat-box [routerLink]="['/contact']"></app-chat-box>
+    </div>
+    <ng-template #elseblock>{{ "NO OFFERS" | translate }}</ng-template>
+  </div>
+</div>

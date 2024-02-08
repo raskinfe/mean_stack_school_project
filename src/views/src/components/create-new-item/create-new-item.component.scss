@@ -1,0 +1,65 @@
+.container {
+  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 4px;
+    .file {
+      .btn-group {
+        display: flex;
+        gap: 10px;
+        max-width: 600px;
+        margin: 10px;
+
+        .btn-add {
+          display: flex;
+          width: 200px;
+          background-color: rgb(25, 137, 166);
+          color: #fff;
+          box-shadow: 1px 2px rgb(80, 171, 194);
+          &:hover {
+            box-shadow: unset;
+          }
+          span {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .inp {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      select {
+        cursor: pointer;
+        height: 40px;
+      }
+      .input {
+        padding: 10px 20px;
+        width: 600px;
+        margin: 10px;
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        background-color: #dadbdd;
+      }
+    }
+
+    .btn-primary {
+      width: 600px;
+      margin-top: 12px;
+    }
+  }
+}

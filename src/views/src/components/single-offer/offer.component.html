@@ -1,0 +1,83 @@
+<div class="container" *ngIf="_offer">
+  <div class="sidebar" *ngIf="_offered_by.id !== _state.user.id">
+    <div class="user__offered-by">
+      <div class="__image">
+        <img [src]="imageUrl(_offered_by.avatar)" alt="" />
+      </div>
+      <div class="__name">
+        <span>{{ _offered_by.name }}</span>
+      </div>
+    </div>
+
+    <div class="msg">
+      <textarea
+        name=""
+        id="message"
+        cols="30"
+        rows="10"
+        placeholder="Contact seller"
+        [(ngModel)]="message"
+      ></textarea>
+      <button (click)="sendMessage()">
+        <i class="fa fa-paper-plane"></i>
+        Send Message
+      </button>
+    </div>
+  </div>
+
+  <div class="middle">
+    <div class="img-container">
+      <span (click)="slideBackward()" *ngIf="isActive">
+        <i class="fa-solid fa-square-caret-left"></i>
+      </span>
+      <div class="img" *ngFor="let img of _offer.image; let i = index">
+        <img [src]="imageUrl(img)" alt="" *ngIf="isActive === i" />
+      </div>
+      <span (click)="slideForward()" *ngIf="isActive < imageLength - 1">
+        <i class="fa-solid fa-square-caret-right"></i>
+      </span>
+    </div>
+    <div class="image-upload">
+      <input
+        type="file"
+        name="image"
+        id="image"
+        hidden
+        (change)="onChange($event)"
+      />
+    </div>
+    <div class="btn" *ngIf="_offered_by.id === _state.user.id">
+      <span class="btn-edit" (click)="onUploadMore()"
+        >Add more pictures
+        <i class="fa fa-plus"></i>
+      </span>
+    </div>
+    <div class="offer">
+      <div class="input-container">
+        <div *ngIf="_offered_by.id === _state.user.id; else elseblock1">
+          <input type="text" [(ngModel)]="title" class="input" />
+          <textarea
+            type="text"
+            [(ngModel)]="description"
+            class="__description input"
+          >
+          </textarea>
+          <input type="number" [(ngModel)]="price" class="input" />
+        </div>
+        <ng-template #elseblock1>
+          <div class="__description">
+            <span>{{ _offer.description }}</span>
+          </div>
+          <div class="__price">
+            <span>{{ _offer.price }} &euro;</span>
+          </div>
+        </ng-template>
+      </div>
+      <div class="btn" *ngIf="_offered_by.id === _state.user.id">
+        <span class="btn-edit" (click)="onUpdateOffer(_offer._id)">
+          Update offer
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

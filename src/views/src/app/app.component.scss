@@ -1,0 +1,16 @@
+@import "../assets/sass/variables.scss";
+h1 {
+  color: $text-color;
+}
+
+.alert-success {
+  background-color: rgba(7, 78, 7, 0.654);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.container {
+  min-height: 100vh;
+}

@@ -1,0 +1,140 @@
+// Colours
+$red: #af4034;
+$primary: #e63946;
+$secondary: #1879ea;
+$white: #fff;
+$black: #333333;
+$grey: #8c8c8c;
+$lightgrey: rgba(196, 196, 196, 0.3);
+$bannergreen: #99c355;
+$bannerpurple: #7141a2;
+$bannerblue: #105cdd;
+$banneryellow: #f8ca00;
+$transition-speed: 0.4s;
+$transition-speed-fast: 0.4s;
+$ease: cubic-bezier(0, 0, 0.21, 1),
+  -webkit-transform 233ms cubic-bezier(0, 0, 0.21, 1);
+// fonts
+$roboto: "Roboto", sans-serif;
+$bold: 700;
+$reg: 400;
+@mixin font-roboto(
+  $size: false,
+  $weight: false,
+  $ls: false,
+  $tt: false,
+  $lh: false
+) {
+  @if $size {
+    font-size: $size;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $ls {
+    letter-spacing: $ls;
+  }
+  @if $tt {
+    text-transform: $tt;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+// Breakpoints
+$mobile-width: 300px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$large-screen: 1900px;
+//Widths
+$mob-pad-width: 20px;
+$tab-pad-width: 40px;
+$desk-pad-width: 60px;
+$max-width: 1140px;
+@mixin mobile {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width - 1px}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin largeScreen {
+  @media (min-width: #{$large-screen}) {
+    @content;
+  }
+}
+// Theme mixin
+@mixin themify($property, $key, $themes: $themes) {
+  @each $theme, $colors in $themes {
+    &.theme-#{$theme},
+    .theme-#{$theme} & {
+      #{$property}: map-get($colors, $key);
+    }
+  }
+}
+
+@mixin color($arguments...) {
+  @include themify("color", $arguments...);
+}
+
+@mixin border-color($arguments...) {
+  @include themify("border-color", $arguments...);
+}
+
+@mixin border-right-color($arguments...) {
+  @include themify("border-right-color", $arguments...);
+}
+
+@mixin background-color($arguments...) {
+  @include themify("background-color", $arguments...);
+}
+
+@mixin background($arguments...) {
+  @include themify("background", $arguments...);
+}
+
+@mixin textstyle-color($arguments...) {
+  @include themify("text-decoration-color", $arguments...);
+}
+
+@mixin fill($arguments...) {
+  @include themify("fill", $arguments...);
+}
+
+// Media Query Mixin
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+    @if $type==max {
+      $width: $width - 1px;
+    }
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Media Query Breakpoint variables
+$breakpoints: (
+  "phone-small": 360px,
+  "phone": 400px,
+  "phone-wide": 480px,
+  "phablet": 560px,
+  "tablet-small": 640px,
+  "tablet": 768px,
+  "tablet-wide": 1024px,
+  "desktop": 1248px,
+  "desktop-wide": 1440px,
+);
